@@ -1,0 +1,78 @@
+USE OnlineBookstore;
+
+-- 1. SELECT all columns from Books
+SELECT * FROM Books;
+
+-- 2. SELECT specific columns: title and price from Books
+SELECT title, price FROM Books;
+
+-- 3. SELECT books with price greater than 300
+SELECT title, price FROM Books
+WHERE price > 300;
+
+-- 4. SELECT books with price BETWEEN 200 AND 500
+SELECT title, price FROM Books
+WHERE price BETWEEN 200 AND 500;
+
+-- 5. SELECT books with title containing 'Harry' using LIKE
+SELECT title FROM Books
+WHERE title LIKE '%Harry%';
+
+-- 6. SELECT books with title starting with 'A'
+SELECT title FROM Books
+WHERE title LIKE 'A%';
+
+-- 7. SELECT users with NULL email
+SELECT * FROM Users
+WHERE email IS NULL;
+
+-- 8. SELECT books that are out of stock OR priced under 200
+SELECT * FROM Books
+WHERE stock = 0 OR price < 200;
+
+-- 9. SELECT books with author_id IN (1, 2)
+SELECT * FROM Books
+WHERE author_id IN (1, 2);
+
+-- 10. SELECT orders placed by user_id = 1
+SELECT * FROM Orders
+WHERE user_id = 1;
+
+-- 11. SELECT orders placed after '2024-01-01'
+SELECT * FROM Orders
+WHERE order_date > '2024-01-01';
+
+-- 12. SELECT all authors sorted alphabetically (ascending)
+SELECT * FROM Authors
+ORDER BY name ASC;
+
+-- 13. SELECT all books sorted by price descending
+SELECT title, price FROM Books
+ORDER BY price DESC;
+
+-- 14. SELECT top 3 most expensive books
+SELECT title, price FROM Books
+ORDER BY price DESC
+LIMIT 3;
+
+-- 15. SELECT DISTINCT order statuses
+SELECT DISTINCT status FROM Orders;
+
+-- 16. SELECT books with aliasing (title as book_title)
+SELECT title AS book_title, price FROM Books;
+
+-- 17. SELECT users whose names start with 'A' and have email
+SELECT * FROM Users
+WHERE name LIKE 'A%' AND email IS NOT NULL;
+
+-- 18. SELECT books where stock is NOT NULL
+SELECT title, stock FROM Books
+WHERE stock IS NOT NULL;
+
+-- 19. SELECT payments made via Credit Card
+SELECT * FROM Payments
+WHERE method = 'Credit Card';
+
+-- 20. SELECT users ordered by newest registration
+SELECT * FROM Users
+ORDER BY created_at DESC;
